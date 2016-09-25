@@ -22,7 +22,7 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 	
 	//County表
 	public static final String CREATE_COUNTY = "create table County("
-			+ "in integer primary key autoincrement, "
+			+ "id integer primary key autoincrement, "
 			+ "county_name text, "
 			+ "county_code text, "
 			+ "city_id integer)";
@@ -39,10 +39,11 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
 		db.execSQL(CREATE_PROVINCE); //创建Province表
 		db.execSQL(CREATE_CITY);     //创建City表
 		db.execSQL(CREATE_COUNTY);   //创建County表
+		
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
+	public void onUpgrade(SQLiteDatabase db, int arg1, int arg2) {
 		// TODO Auto-generated method stub
 		
 	}

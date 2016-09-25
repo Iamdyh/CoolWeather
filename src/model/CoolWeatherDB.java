@@ -57,7 +57,7 @@ public class CoolWeatherDB {
 		if(cursor.moveToFirst()){
 			do{
 				Province province = new Province();
-		        province.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+		        province.setId(cursor.getInt(cursor.getColumnIndex("id")));
 		        province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_name")));
 		        province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_code")));
 		        list.add(province);
@@ -107,7 +107,7 @@ public class CoolWeatherDB {
 			ContentValues values = new ContentValues();
 			values.put("county_name", county.getCountyName());
 			values.put("county_code", county.getCountyCode());
-			values.put("cityId", county.getCityId());
+			values.put("city_id", county.getCityId());
 			db.insert("County", null, values);
 		}
 	}
@@ -115,11 +115,11 @@ public class CoolWeatherDB {
 	//从数据库中读取某城市下所有县的信息
 	public List<County> loadCounties(int cityId){
 		List<County> list = new ArrayList<County>();
-		Cursor cursor = db.query("County", null, "cityId = ?", new String[] {String.valueOf(cityId)}, null, null, null);
+		Cursor cursor = db.query("County", null, "city_id = ?", new String[] {String.valueOf(cityId)}, null, null, null);
 		if(cursor.moveToFirst()){
 			do{
 				County county = new County();
-				county.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+				county.setId(cursor.getInt(cursor.getColumnIndex("id")));
 				county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
 				county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
 				county.setCityId(cityId);
