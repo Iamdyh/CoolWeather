@@ -25,6 +25,8 @@
         </activity>
         <activity	
             android:name="com.activity.WeatherActivity"></activity>
-    </application>
+        <service android:name="service.AutoUpdateServic"></service>
+        <receiver android:name="receiver.AutoUpdateReceiver"></receiver>    
+        </application>
 
 </manifest>
